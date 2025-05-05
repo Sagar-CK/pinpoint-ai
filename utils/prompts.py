@@ -36,3 +36,8 @@ I recommended Joe's Pizza because you guys mentioned you wanted something cheap 
 
 In your response, ONLY RESPOND WITH THE JUSTIFICATION, NOTHING ELSE.
 """
+
+RANKING_PROMPT = """
+
+
+"""
