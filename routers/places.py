@@ -9,7 +9,7 @@ import requests
 from google import genai
 from google.genai import types
 
-from utils.constants import MAPS_API_URL, GOOGLE_API_KEY, LITE_MODEL, PRO_MODEL
+from utils.constants import MAPS_API_URL, GOOGLE_API_KEY, LITE_MODEL
 from utils.prompts import (
     CREATE_QUERY_PROMPT,
     JUSTIFICATION_PROMPT,
@@ -25,6 +25,7 @@ from models.place import (
     SearchResponse,
     Availability,
     UserPreferences,
+    PriceRange,
 )
 from models.chat import ChatRequest, Message
 
@@ -34,6 +35,14 @@ client = genai.Client(api_key=GOOGLE_API_KEY)
 
 
 def map_to_availability(value):
+    """Map a value to an availability enum.
+
+    Args:
+        value: The value to map.
+
+    Returns:
+        The mapped availability.
+    """
     if value is True or value == "TRUE" or value == "true":
         return Availability.TRUE
     elif value is False or value == "FALSE" or value == "false":
@@ -191,8 +200,10 @@ async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
                 if "reservable" in place
                 else Availability.NOT_AVAILABLE
             ),
-            priceLevel=place["priceLevel"] if "priceLevel" in place else None,
-            priceRange=place["priceRange"] if "priceRange" in place else None,
+            priceRange=PriceRange(
+                startPrice=place["priceRange"]["startPrice"]["currencyCode"] + " " + place["priceRange"]["startPrice"]["units"] if "priceRange" in place and "startPrice" in place["priceRange"] else None,
+                endPrice=place["priceRange"]["endPrice"]["currencyCode"] + " " + place["priceRange"]["endPrice"]["units"] if "priceRange" in place and "endPrice" in place["priceRange"] else None,
+            ),
             photos=(
                 [photo["googleMapsUri"] for photo in place["photos"]]
                 if "photos" in place

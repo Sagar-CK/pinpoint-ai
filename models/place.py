@@ -17,8 +17,8 @@ class Location(BaseModel):
 
 class PriceRange(BaseModel):
     """ Price range for location """
-    lower: Optional[str] = None
-    upper: Optional[str] = None    
+    startPrice: Optional[str] = None
+    endPrice: Optional[str] = None    
 
 class Place(BaseModel):
     """ Place data structure that is used for AI ranking """
