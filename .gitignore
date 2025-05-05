@@ -4,5 +4,3 @@ __pycache__/
 *.pyo
 .gitignore
 .env
-places.json
-*/node_modules/

@@ -1,0 +1,1166 @@
+2025-05-05 12:12:16,950 - INFO - Will watch for changes in these directories: ['/Users/sagarchethankumar/Documents/agentic-maps']
+2025-05-05 12:12:16,951 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-05-05 12:12:16,951 - INFO - Started reloader process [46789] using WatchFiles
+2025-05-05 12:12:17,259 - INFO - Started server process [46791]
+2025-05-05 12:12:17,259 - INFO - Waiting for application startup.
+2025-05-05 12:12:17,259 - INFO - Application startup complete.
+2025-05-05 12:12:18,036 - INFO - [LOG]: Request: GET /mcp (Path: /mcp, Query: )
+2025-05-05 12:12:18,036 - INFO - [LOG]: Response: 404 - Processed in 0.00s (Path: /mcp)
+2025-05-05 12:12:19,618 - INFO - [LOG]: Request: GET /places/query (Path: /places/query, Query: )
+2025-05-05 12:12:19,620 - INFO - [LOG]: Response: 422 - Processed in 0.00s (Path: /places/query)
+2025-05-05 12:12:44,283 - INFO - 1 change detected
+2025-05-05 12:12:44,284 - WARNING - WatchFiles detected changes in 'models/place.py'. Reloading...
+2025-05-05 12:12:44,336 - INFO - Shutting down
+2025-05-05 12:12:44,438 - INFO - Waiting for application shutdown.
+2025-05-05 12:12:44,438 - INFO - Application shutdown complete.
+2025-05-05 12:12:44,438 - INFO - Finished server process [46791]
+2025-05-05 12:12:44,774 - INFO - Started server process [46973]
+2025-05-05 12:12:44,775 - INFO - Waiting for application startup.
+2025-05-05 12:12:44,775 - INFO - Application startup complete.
+2025-05-05 12:12:44,852 - INFO - 4 changes detected
+2025-05-05 12:12:51,089 - INFO - 1 change detected
+2025-05-05 12:12:51,089 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:12:51,141 - INFO - Shutting down
+2025-05-05 12:12:51,241 - INFO - Waiting for application shutdown.
+2025-05-05 12:12:51,241 - INFO - Application shutdown complete.
+2025-05-05 12:12:51,242 - INFO - Finished server process [46973]
+2025-05-05 12:12:51,609 - INFO - 4 changes detected
+2025-05-05 12:12:54,279 - INFO - 1 change detected
+2025-05-05 12:12:54,280 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:12:54,595 - INFO - Started server process [47061]
+2025-05-05 12:12:54,596 - INFO - Waiting for application startup.
+2025-05-05 12:12:54,596 - INFO - Application startup complete.
+2025-05-05 12:12:54,644 - INFO - 3 changes detected
+2025-05-05 12:12:58,548 - INFO - 1 change detected
+2025-05-05 12:12:58,549 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:12:58,635 - INFO - Shutting down
+2025-05-05 12:12:58,737 - INFO - Waiting for application shutdown.
+2025-05-05 12:12:58,737 - INFO - Application shutdown complete.
+2025-05-05 12:12:58,737 - INFO - Finished server process [47061]
+2025-05-05 12:12:59,023 - INFO - Started server process [47093]
+2025-05-05 12:12:59,024 - INFO - Waiting for application startup.
+2025-05-05 12:12:59,024 - INFO - Application startup complete.
+2025-05-05 12:12:59,102 - INFO - 4 changes detected
+2025-05-05 12:13:02,526 - INFO - 1 change detected
+2025-05-05 12:13:02,526 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:13:02,557 - INFO - Shutting down
+2025-05-05 12:13:02,658 - INFO - Waiting for application shutdown.
+2025-05-05 12:13:02,659 - INFO - Application shutdown complete.
+2025-05-05 12:13:02,659 - INFO - Finished server process [47093]
+2025-05-05 12:13:02,944 - INFO - Started server process [47120]
+2025-05-05 12:13:02,945 - INFO - Waiting for application startup.
+2025-05-05 12:13:02,945 - INFO - Application startup complete.
+2025-05-05 12:13:03,026 - INFO - 4 changes detected
+2025-05-05 12:13:04,839 - INFO - [LOG]: Request: GET /places/query (Path: /places/query, Query: )
+2025-05-05 12:13:05,168 - ERROR - Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 49, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     ...<3 lines>...
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 35, in get_places_from_maps
+    |     return data["results"]
+    |            ~~~~^^^^^^^^^^^
+    | KeyError: 'results'
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 49, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 35, in get_places_from_maps
+    return data["results"]
+           ~~~~^^^^^^^^^^^
+KeyError: 'results'
+2025-05-05 12:13:23,633 - INFO - 1 change detected
+2025-05-05 12:13:23,633 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:13:23,638 - INFO - Shutting down
+2025-05-05 12:13:23,739 - INFO - Waiting for application shutdown.
+2025-05-05 12:13:23,740 - INFO - Application shutdown complete.
+2025-05-05 12:13:23,740 - INFO - Finished server process [47120]
+2025-05-05 12:13:24,040 - INFO - Started server process [47245]
+2025-05-05 12:13:24,040 - INFO - Waiting for application startup.
+2025-05-05 12:13:24,040 - INFO - Application startup complete.
+2025-05-05 12:13:24,103 - INFO - 4 changes detected
+2025-05-05 12:13:28,917 - INFO - 1 change detected
+2025-05-05 12:13:28,917 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:13:28,988 - INFO - Shutting down
+2025-05-05 12:13:29,090 - INFO - Waiting for application shutdown.
+2025-05-05 12:13:29,090 - INFO - Application shutdown complete.
+2025-05-05 12:13:29,090 - INFO - Finished server process [47245]
+2025-05-05 12:13:29,394 - INFO - Started server process [47297]
+2025-05-05 12:13:29,395 - INFO - Waiting for application startup.
+2025-05-05 12:13:29,395 - INFO - Application startup complete.
+2025-05-05 12:13:29,455 - INFO - 4 changes detected
+2025-05-05 12:13:45,721 - INFO - 1 change detected
+2025-05-05 12:13:45,865 - INFO - Shutting down
+2025-05-05 12:13:45,967 - INFO - Waiting for application shutdown.
+2025-05-05 12:13:45,968 - INFO - Application shutdown complete.
+2025-05-05 12:13:45,968 - INFO - Finished server process [47297]
+2025-05-05 12:13:45,973 - INFO - Stopping reloader process [46789]
+2025-05-05 12:13:53,434 - INFO - Will watch for changes in these directories: ['/Users/sagarchethankumar/Documents/agentic-maps']
+2025-05-05 12:13:53,434 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-05-05 12:13:53,435 - INFO - Started reloader process [47505] using WatchFiles
+2025-05-05 12:13:53,736 - INFO - Started server process [47507]
+2025-05-05 12:13:53,736 - INFO - Waiting for application startup.
+2025-05-05 12:13:53,737 - INFO - Application startup complete.
+2025-05-05 12:14:04,358 - INFO - [LOG]: Request: GET /places/query (Path: /places/query, Query: )
+2025-05-05 12:14:04,463 - ERROR - Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 49, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     ...<3 lines>...
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 38, in get_places_from_maps
+    |     return data["results"]
+    |            ~~~~^^^^^^^^^^^
+    | KeyError: 'results'
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 49, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 38, in get_places_from_maps
+    return data["results"]
+           ~~~~^^^^^^^^^^^
+KeyError: 'results'
+2025-05-05 12:14:30,020 - INFO - 1 change detected
+2025-05-05 12:14:30,020 - WARNING - WatchFiles detected changes in 'server.py'. Reloading...
+2025-05-05 12:14:30,022 - INFO - Shutting down
+2025-05-05 12:14:30,123 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:30,124 - INFO - Application shutdown complete.
+2025-05-05 12:14:30,124 - INFO - Finished server process [47507]
+2025-05-05 12:14:30,493 - INFO - Started server process [47744]
+2025-05-05 12:14:30,493 - INFO - Waiting for application startup.
+2025-05-05 12:14:30,493 - INFO - Application startup complete.
+2025-05-05 12:14:30,534 - INFO - 4 changes detected
+2025-05-05 12:14:35,394 - INFO - 1 change detected
+2025-05-05 12:14:35,394 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:35,443 - INFO - Shutting down
+2025-05-05 12:14:35,545 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:35,545 - INFO - Application shutdown complete.
+2025-05-05 12:14:35,545 - INFO - Finished server process [47744]
+2025-05-05 12:14:35,838 - INFO - Started server process [47777]
+2025-05-05 12:14:35,839 - INFO - Waiting for application startup.
+2025-05-05 12:14:35,839 - INFO - Application startup complete.
+2025-05-05 12:14:35,909 - INFO - 4 changes detected
+2025-05-05 12:14:37,185 - INFO - 1 change detected
+2025-05-05 12:14:37,186 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:37,253 - INFO - Shutting down
+2025-05-05 12:14:37,355 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:37,355 - INFO - Application shutdown complete.
+2025-05-05 12:14:37,356 - INFO - Finished server process [47777]
+2025-05-05 12:14:37,639 - INFO - Started server process [47796]
+2025-05-05 12:14:37,640 - INFO - Waiting for application startup.
+2025-05-05 12:14:37,640 - INFO - Application startup complete.
+2025-05-05 12:14:37,721 - INFO - 4 changes detected
+2025-05-05 12:14:42,920 - INFO - 1 change detected
+2025-05-05 12:14:42,920 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:42,995 - INFO - Shutting down
+2025-05-05 12:14:43,097 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:43,097 - INFO - Application shutdown complete.
+2025-05-05 12:14:43,098 - INFO - Finished server process [47796]
+2025-05-05 12:14:43,461 - INFO - 4 changes detected
+2025-05-05 12:14:45,375 - INFO - 1 change detected
+2025-05-05 12:14:45,375 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:45,660 - INFO - Started server process [47858]
+2025-05-05 12:14:45,660 - INFO - Waiting for application startup.
+2025-05-05 12:14:45,661 - INFO - Application startup complete.
+2025-05-05 12:14:45,742 - INFO - 3 changes detected
+2025-05-05 12:14:48,450 - INFO - 1 change detected
+2025-05-05 12:14:48,450 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:48,488 - INFO - Shutting down
+2025-05-05 12:14:48,590 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:48,590 - INFO - Application shutdown complete.
+2025-05-05 12:14:48,591 - INFO - Finished server process [47858]
+2025-05-05 12:14:48,877 - INFO - Started server process [47877]
+2025-05-05 12:14:48,878 - INFO - Waiting for application startup.
+2025-05-05 12:14:48,878 - INFO - Application startup complete.
+2025-05-05 12:14:48,956 - INFO - 4 changes detected
+2025-05-05 12:14:49,685 - INFO - 1 change detected
+2025-05-05 12:14:49,685 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:49,686 - INFO - Shutting down
+2025-05-05 12:14:49,787 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:49,787 - INFO - Application shutdown complete.
+2025-05-05 12:14:49,788 - INFO - Finished server process [47877]
+2025-05-05 12:14:50,082 - INFO - Started server process [47891]
+2025-05-05 12:14:50,082 - INFO - Waiting for application startup.
+2025-05-05 12:14:50,082 - INFO - Application startup complete.
+2025-05-05 12:14:50,155 - INFO - 4 changes detected
+2025-05-05 12:14:52,870 - INFO - 1 change detected
+2025-05-05 12:14:52,871 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:52,911 - INFO - Shutting down
+2025-05-05 12:14:53,012 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:53,012 - INFO - Application shutdown complete.
+2025-05-05 12:14:53,012 - INFO - Finished server process [47891]
+2025-05-05 12:14:53,300 - INFO - Started server process [47912]
+2025-05-05 12:14:53,301 - INFO - Waiting for application startup.
+2025-05-05 12:14:53,301 - INFO - Application startup complete.
+2025-05-05 12:14:53,377 - INFO - 4 changes detected
+2025-05-05 12:14:58,034 - INFO - 1 change detected
+2025-05-05 12:14:58,034 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:14:58,049 - INFO - Shutting down
+2025-05-05 12:14:58,150 - INFO - Waiting for application shutdown.
+2025-05-05 12:14:58,151 - INFO - Application shutdown complete.
+2025-05-05 12:14:58,151 - INFO - Finished server process [47912]
+2025-05-05 12:14:58,454 - INFO - Started server process [47957]
+2025-05-05 12:14:58,455 - INFO - Waiting for application startup.
+2025-05-05 12:14:58,455 - INFO - Application startup complete.
+2025-05-05 12:14:58,506 - INFO - 4 changes detected
+2025-05-05 12:15:01,489 - INFO - 1 change detected
+2025-05-05 12:15:01,489 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:15:01,588 - INFO - Shutting down
+2025-05-05 12:15:01,689 - INFO - Waiting for application shutdown.
+2025-05-05 12:15:01,689 - INFO - Application shutdown complete.
+2025-05-05 12:15:01,690 - INFO - Finished server process [47957]
+2025-05-05 12:15:01,977 - INFO - Started server process [47986]
+2025-05-05 12:15:01,978 - INFO - Waiting for application startup.
+2025-05-05 12:15:01,978 - INFO - Application startup complete.
+2025-05-05 12:15:02,051 - INFO - 4 changes detected
+2025-05-05 12:15:06,864 - INFO - 1 change detected
+2025-05-05 12:15:06,864 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:15:06,928 - INFO - Shutting down
+2025-05-05 12:15:07,030 - INFO - Waiting for application shutdown.
+2025-05-05 12:15:07,030 - INFO - Application shutdown complete.
+2025-05-05 12:15:07,030 - INFO - Finished server process [47986]
+2025-05-05 12:15:07,325 - INFO - Started server process [48019]
+2025-05-05 12:15:07,325 - INFO - Waiting for application startup.
+2025-05-05 12:15:07,326 - INFO - Application startup complete.
+2025-05-05 12:15:07,390 - INFO - 4 changes detected
+2025-05-05 12:15:14,473 - INFO - 1 change detected
+2025-05-05 12:15:14,474 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:15:14,500 - INFO - Shutting down
+2025-05-05 12:15:14,601 - INFO - Waiting for application shutdown.
+2025-05-05 12:15:14,602 - INFO - Application shutdown complete.
+2025-05-05 12:15:14,602 - INFO - Finished server process [48019]
+2025-05-05 12:15:14,909 - INFO - Started server process [48080]
+2025-05-05 12:15:14,909 - INFO - Waiting for application startup.
+2025-05-05 12:15:14,909 - INFO - Application startup complete.
+2025-05-05 12:15:14,960 - INFO - 4 changes detected
+2025-05-05 12:15:15,590 - INFO - 1 change detected
+2025-05-05 12:15:15,590 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:15:15,618 - INFO - Shutting down
+2025-05-05 12:15:15,719 - INFO - Waiting for application shutdown.
+2025-05-05 12:15:15,719 - INFO - Application shutdown complete.
+2025-05-05 12:15:15,720 - INFO - Finished server process [48080]
+2025-05-05 12:15:16,024 - INFO - Started server process [48081]
+2025-05-05 12:15:16,024 - INFO - Waiting for application startup.
+2025-05-05 12:15:16,025 - INFO - Application startup complete.
+2025-05-05 12:15:16,083 - INFO - 4 changes detected
+2025-05-05 12:15:17,464 - INFO - 1 change detected
+2025-05-05 12:15:17,464 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:15:17,539 - INFO - Shutting down
+2025-05-05 12:15:17,641 - INFO - Waiting for application shutdown.
+2025-05-05 12:15:17,642 - INFO - Application shutdown complete.
+2025-05-05 12:15:17,642 - INFO - Finished server process [48081]
+2025-05-05 12:15:17,945 - INFO - Started server process [48100]
+2025-05-05 12:15:17,946 - INFO - Waiting for application startup.
+2025-05-05 12:15:17,946 - INFO - Application startup complete.
+2025-05-05 12:15:18,011 - INFO - 4 changes detected
+2025-05-05 12:15:57,277 - INFO - [LOG]: Request: GET /places/query (Path: /places/query, Query: )
+2025-05-05 12:15:57,417 - ERROR - Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 44, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     ...<3 lines>...
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 47, in get_places_from_maps
+    |     return data["results"]
+    |            ~~~~^^^^^^^^^^^
+    | KeyError: 'results'
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 44, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 47, in get_places_from_maps
+    return data["results"]
+           ~~~~^^^^^^^^^^^
+KeyError: 'results'
+2025-05-05 12:16:13,364 - INFO - 1 change detected
+2025-05-05 12:16:13,364 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:16:13,371 - INFO - Shutting down
+2025-05-05 12:16:13,472 - INFO - Waiting for application shutdown.
+2025-05-05 12:16:13,472 - INFO - Application shutdown complete.
+2025-05-05 12:16:13,473 - INFO - Finished server process [48100]
+2025-05-05 12:16:13,760 - INFO - Started server process [48435]
+2025-05-05 12:16:13,760 - INFO - Waiting for application startup.
+2025-05-05 12:16:13,761 - INFO - Application startup complete.
+2025-05-05 12:16:13,839 - INFO - 4 changes detected
+2025-05-05 12:16:14,166 - INFO - Shutting down
+2025-05-05 12:16:14,267 - INFO - Waiting for application shutdown.
+2025-05-05 12:16:14,267 - INFO - Application shutdown complete.
+2025-05-05 12:16:14,267 - INFO - Finished server process [48435]
+2025-05-05 12:16:14,269 - INFO - Stopping reloader process [47505]
+2025-05-05 12:16:16,646 - INFO - Will watch for changes in these directories: ['/Users/sagarchethankumar/Documents/agentic-maps']
+2025-05-05 12:16:16,646 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-05-05 12:16:16,646 - INFO - Started reloader process [48489] using WatchFiles
+2025-05-05 12:16:16,909 - INFO - Started server process [48491]
+2025-05-05 12:16:16,909 - INFO - Waiting for application startup.
+2025-05-05 12:16:16,910 - INFO - Application startup complete.
+2025-05-05 12:16:18,588 - INFO - [LOG]: Request: GET /places/query (Path: /places/query, Query: )
+2025-05-05 12:16:18,717 - ERROR - Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 44, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     ...<3 lines>...
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 46, in get_places_from_maps
+    |     return data["results"]
+    |            ~~~~^^^^^^^^^^^
+    | KeyError: 'results'
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 44, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 46, in get_places_from_maps
+    return data["results"]
+           ~~~~^^^^^^^^^^^
+KeyError: 'results'
+2025-05-05 12:16:32,546 - INFO - 2 changes detected
+2025-05-05 12:16:37,707 - INFO - Shutting down
+2025-05-05 12:16:37,811 - INFO - Waiting for application shutdown.
+2025-05-05 12:16:37,812 - INFO - Application shutdown complete.
+2025-05-05 12:16:37,813 - INFO - Finished server process [48491]
+2025-05-05 12:16:37,819 - INFO - Stopping reloader process [48489]
+2025-05-05 12:16:39,344 - INFO - Will watch for changes in these directories: ['/Users/sagarchethankumar/Documents/agentic-maps']
+2025-05-05 12:16:39,344 - INFO - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-05-05 12:16:39,344 - INFO - Started reloader process [48669] using WatchFiles
+2025-05-05 12:16:39,627 - INFO - Started server process [48671]
+2025-05-05 12:16:39,628 - INFO - Waiting for application startup.
+2025-05-05 12:16:39,628 - INFO - Application startup complete.
+2025-05-05 12:16:41,311 - INFO - [LOG]: Request: GET /places/query (Path: /places/query, Query: )
+2025-05-05 12:16:41,569 - ERROR - Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |                ~~~~~~~~~~~~~~~~~~~~~~~^^
+  |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  |         "unhandled errors in a TaskGroup", self._exceptions
+  |     ) from None
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |         self.scope, self.receive, self.send
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |                                    ~~~~~~~~~~~~~~~~~~^^
+    |   File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    |     self.gen.throw(value)
+    |     ~~~~~~~~~~~~~~^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 44, in log_requests
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |     ...<3 lines>...
+    |     )
+    |     ^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 46, in get_places_from_maps
+    |     return data["results"]
+    |            ~~~~^^^^^^^^^^^
+    | KeyError: 'results'
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+                                   ~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/server.py", line 44, in log_requests
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 734, in app
+    await route.handle(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/.venv/lib/python3.13/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sagarchethankumar/Documents/agentic-maps/routers/places.py", line 46, in get_places_from_maps
+    return data["results"]
+           ~~~~^^^^^^^^^^^
+KeyError: 'results'
+2025-05-05 12:17:09,896 - INFO - 2 changes detected
+2025-05-05 12:17:42,493 - INFO - 1 change detected
+2025-05-05 12:17:44,198 - INFO - 1 change detected
+2025-05-05 12:17:52,448 - INFO - 1 change detected
+2025-05-05 12:17:53,504 - INFO - 1 change detected
+2025-05-05 12:17:59,192 - INFO - 1 change detected
+2025-05-05 12:18:02,301 - INFO - 1 change detected
+2025-05-05 12:18:06,162 - INFO - 3046 changes detected
+2025-05-05 12:18:06,543 - INFO - 894 changes detected
+2025-05-05 12:18:07,337 - INFO - 2 changes detected
+2025-05-05 12:18:17,819 - INFO - 1 change detected
+2025-05-05 12:18:26,983 - INFO - 2 changes detected
+2025-05-05 12:18:40,500 - INFO - 1 change detected
+2025-05-05 12:18:40,500 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:18:40,582 - INFO - Shutting down
+2025-05-05 12:18:40,683 - INFO - Waiting for application shutdown.
+2025-05-05 12:18:40,683 - INFO - Application shutdown complete.
+2025-05-05 12:18:40,684 - INFO - Finished server process [48671]
+2025-05-05 12:18:41,080 - INFO - Started server process [49890]
+2025-05-05 12:18:41,080 - INFO - Waiting for application startup.
+2025-05-05 12:18:41,081 - INFO - Application startup complete.
+2025-05-05 12:18:41,108 - INFO - 4 changes detected
+2025-05-05 12:18:45,407 - INFO - 1 change detected
+2025-05-05 12:18:45,407 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:18:45,426 - INFO - Shutting down
+2025-05-05 12:18:45,527 - INFO - Waiting for application shutdown.
+2025-05-05 12:18:45,528 - INFO - Application shutdown complete.
+2025-05-05 12:18:45,529 - INFO - Finished server process [49890]
+2025-05-05 12:18:45,813 - INFO - Started server process [49942]
+2025-05-05 12:18:45,814 - INFO - Waiting for application startup.
+2025-05-05 12:18:45,814 - INFO - Application startup complete.
+2025-05-05 12:18:45,898 - INFO - 4 changes detected
+2025-05-05 12:19:02,419 - INFO - 1 change detected
+2025-05-05 12:19:02,419 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:19:02,490 - INFO - Shutting down
+2025-05-05 12:19:02,591 - INFO - Waiting for application shutdown.
+2025-05-05 12:19:02,592 - INFO - Application shutdown complete.
+2025-05-05 12:19:02,592 - INFO - Finished server process [49942]
+2025-05-05 12:19:02,899 - INFO - Started server process [50037]
+2025-05-05 12:19:02,900 - INFO - Waiting for application startup.
+2025-05-05 12:19:02,900 - INFO - Application startup complete.
+2025-05-05 12:19:02,958 - INFO - 4 changes detected
+2025-05-05 12:19:03,809 - INFO - 1 change detected
+2025-05-05 12:19:03,809 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:19:03,910 - INFO - Shutting down
+2025-05-05 12:19:04,012 - INFO - Waiting for application shutdown.
+2025-05-05 12:19:04,012 - INFO - Application shutdown complete.
+2025-05-05 12:19:04,012 - INFO - Finished server process [50037]
+2025-05-05 12:19:04,285 - INFO - Started server process [50052]
+2025-05-05 12:19:04,285 - INFO - Waiting for application startup.
+2025-05-05 12:19:04,285 - INFO - Application startup complete.
+2025-05-05 12:19:04,376 - INFO - 4 changes detected
+2025-05-05 12:19:05,285 - INFO - 1 change detected
+2025-05-05 12:19:05,285 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:19:05,296 - INFO - Shutting down
+2025-05-05 12:19:05,397 - INFO - Waiting for application shutdown.
+2025-05-05 12:19:05,397 - INFO - Application shutdown complete.
+2025-05-05 12:19:05,398 - INFO - Finished server process [50052]
+2025-05-05 12:19:05,685 - INFO - Started server process [50067]
+2025-05-05 12:19:05,686 - INFO - Waiting for application startup.
+2025-05-05 12:19:05,686 - INFO - Application startup complete.
+2025-05-05 12:19:05,761 - INFO - 4 changes detected
+2025-05-05 12:19:37,981 - INFO - 1 change detected
+2025-05-05 12:19:45,718 - INFO - 1 change detected
+2025-05-05 12:19:45,718 - WARNING - WatchFiles detected changes in 'models/place.py'. Reloading...
+2025-05-05 12:19:45,790 - INFO - Shutting down
+2025-05-05 12:19:45,892 - INFO - Waiting for application shutdown.
+2025-05-05 12:19:45,892 - INFO - Application shutdown complete.
+2025-05-05 12:19:45,892 - INFO - Finished server process [50067]
+2025-05-05 12:19:46,255 - INFO - 1 change detected
+2025-05-05 12:19:46,263 - INFO - Started server process [50402]
+2025-05-05 12:19:46,264 - INFO - Waiting for application startup.
+2025-05-05 12:19:46,264 - INFO - Application startup complete.
+2025-05-05 12:19:46,621 - INFO - 3 changes detected
+2025-05-05 12:19:58,990 - INFO - 1 change detected
+2025-05-05 12:19:58,990 - WARNING - WatchFiles detected changes in 'models/place.py'. Reloading...
+2025-05-05 12:19:58,996 - INFO - Shutting down
+2025-05-05 12:19:59,098 - INFO - Waiting for application shutdown.
+2025-05-05 12:19:59,098 - INFO - Application shutdown complete.
+2025-05-05 12:19:59,098 - INFO - Finished server process [50402]
+2025-05-05 12:19:59,464 - INFO - 1 change detected
+2025-05-05 12:19:59,497 - INFO - Started server process [50542]
+2025-05-05 12:19:59,497 - INFO - Waiting for application startup.
+2025-05-05 12:19:59,497 - INFO - Application startup complete.
+2025-05-05 12:19:59,826 - INFO - 3 changes detected
+2025-05-05 12:20:09,322 - INFO - 1 change detected
+2025-05-05 12:20:09,322 - WARNING - WatchFiles detected changes in 'routers/places.py'. Reloading...
+2025-05-05 12:20:09,398 - INFO - Shutting down
+2025-05-05 12:20:09,499 - INFO - Waiting for application shutdown.
+2025-05-05 12:20:09,500 - INFO - Application shutdown complete.
+2025-05-05 12:20:09,500 - INFO - Finished server process [50542]
+2025-05-05 12:20:09,811 - INFO - Started server process [50617]
+2025-05-05 12:20:09,811 - INFO - Waiting for application startup.
+2025-05-05 12:20:09,812 - INFO - Application startup complete.
+2025-05-05 12:20:09,862 - INFO - 4 changes detected
