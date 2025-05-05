@@ -63,6 +63,23 @@ async def find_places(request: ChatRequest) -> StreamingResponse:
         A streaming response containing places and justification.
     """
     messages = request.messages
+
+    locations = [
+        Location(latitude=userLocation.location.latitude, longitude=userLocation.location.longitude)
+        for userLocation in request.userLocations
+    ]
+
+    #The ideal location is something such that no one needs to travel more than 2 hours
+    # to get to the place. This is a rough estimate and can be improved.
+    ideal_location = Location(
+        latitude=sum([location.latitude for location in locations]) / len(locations),
+        longitude=sum([location.longitude for location in locations]) / len(locations),
+    )
+
+    # For now, just a dummy search radius of 10 km
+    search_radius = 10000  # 10 km
+
+
     formatted_messages = [
         types.Content(
             role=message.role, parts=[types.Part.from_text(text=message.content)]
@@ -83,19 +100,19 @@ async def find_places(request: ChatRequest) -> StreamingResponse:
             response_schema=SearchQueries,
         ),
     )
-    
+
     if not queries_pv.parsed:
         raise HTTPException(status_code=500, detail="Failed to parse search queries")
 
     queries = queries_pv.parsed
-    
+
     print(queries)
 
     async def generate_response():
         response_builder = {}
         # First get and stream the places
         places = await get_places_from_maps(
-            SearchRequest(queries=queries.queries, messages=messages)
+            SearchRequest(query=queries.queries, messages=messages, location=ideal_location, searchRadius=search_radius)
         )
         response_builder["places"] = [place.model_dump() for place in places.places]
         response_builder["user_preferences"] = [
@@ -128,6 +145,8 @@ async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
     Returns:
         The places from the maps API.
     """
+    locationBias = '{{"circle": {{"center": {{"latitude": {latitude}, "longitude": {longitude}}}, "radius": {radius}}}}}'.format(latitude=request.location.latitude, longitude=request.location.longitude, radius=request.searchRadius)
+
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -149,7 +168,7 @@ async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
                 # Skip if we've already seen this place
                 if place["id"] in seen_place_ids:
                     continue
-                
+
                 seen_place_ids.add(place["id"])
                 all_places.append(
                     PlaceFullResponse(
@@ -321,7 +340,7 @@ async def get_user_preferences(
 
     # Get all place scores in parallel
     place_scores = await asyncio.gather(*[get_place_score(place) for place in places])
-    
+
     print(place_scores)
 
     async def get_final_score(

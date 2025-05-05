@@ -1,8 +1,8 @@
 """Pydantic models for place and location data structures."""
 from typing import Optional, List
 from enum import Enum
-from pydantic import BaseModel, Field
-from models.chat import Message
+from pydantic import BaseModel,Field
+from models.chat import Message,Location
 
 class Availability(str, Enum):
     """Enum for availability status"""
@@ -10,15 +10,10 @@ class Availability(str, Enum):
     FALSE = "FALSE"
     NOT_AVAILABLE = "NOT_AVAILABLE"
 
-class Location(BaseModel):
-    """ Place location data structure. """
-    latitude: float
-    longitude: float
-
 class PriceRange(BaseModel):
     """ Price range for location """
     startPrice: Optional[str] = None
-    endPrice: Optional[str] = None    
+    endPrice: Optional[str] = None
 
 class Place(BaseModel):
     """ Place data structure that is used for AI ranking """
@@ -80,6 +75,8 @@ class SearchRequest(BaseModel):
     """ Search request data structure. """
     queries: List[str]
     messages: List[Message]
+    location: Location
+    searchRadius: int
 
 class SearchQueries(BaseModel):
     """ Search queries data structure. """
