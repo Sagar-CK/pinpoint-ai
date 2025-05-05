@@ -32,13 +32,12 @@ async def log_requests(request: Request, call_next):
         The response object.
     """
     start_time = time.time()
-
     # Log request with more details
-    logger.info("[LOG]: Request: %s %s (Path: %s, Query: %s)", 
+    logger.info("[LOG]: Request: %s (Path: %s, Query: %s, Body: %s)", 
                 request.method, 
                 request.url.path,
-                request.url.path,
-                str(request.query_params))
+                str(request.query_params),
+                str(request.body))
 
     # Get response
     response = await call_next(request)
@@ -47,10 +46,11 @@ async def log_requests(request: Request, call_next):
     process_time = time.time() - start_time
 
     # Log response with more details
-    logger.info("[LOG]: Response: %d - Processed in %.2fs (Path: %s)", 
-                response.status_code, 
+    logger.info("[LOG]: Response: %d - Processed in %.2fs (Path: %s, Body: %s)",
+                response.status_code,
                 process_time,
-                request.url.path)
+                request.url.path,
+                str(response))
 
     return response
 

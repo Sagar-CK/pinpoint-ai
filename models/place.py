@@ -1,5 +1,6 @@
 """Pydantic models for place and location data structures."""
-from typing import Optional
+from typing import Optional, List
+from models.chat import Message
 from pydantic import BaseModel
 
 class Location(BaseModel):
@@ -19,3 +20,9 @@ class Place(BaseModel):
 class SearchRequest(BaseModel):
     """ Search request data structure. """
     query: str
+    messages: List[Message]
+
+class SearchResponse(BaseModel):
+    """ Search response data structure. """
+    places: List[Place]
+    justification: str
