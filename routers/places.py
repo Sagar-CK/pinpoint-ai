@@ -77,7 +77,7 @@ async def find_places(request: ChatRequest) -> StreamingResponse:
     )
 
     # For now, just a dummy search radius of 10 km
-    search_radius = 10000  # 10 km
+    search_radius = 50000  # 10 km
 
 
     formatted_messages = [
@@ -112,7 +112,7 @@ async def find_places(request: ChatRequest) -> StreamingResponse:
         response_builder = {}
         # First get and stream the places
         places = await get_places_from_maps(
-            SearchRequest(query=queries.queries, messages=messages, location=ideal_location, searchRadius=search_radius)
+            SearchRequest(queries=queries.queries, messages=messages, location=ideal_location, searchRadius=search_radius)
         )
         response_builder["places"] = [place.model_dump() for place in places.places]
         response_builder["user_preferences"] = [
@@ -145,7 +145,16 @@ async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
     Returns:
         The places from the maps API.
     """
-    locationBias = '{{"circle": {{"center": {{"latitude": {latitude}, "longitude": {longitude}}}, "radius": {radius}}}}}'.format(latitude=request.location.latitude, longitude=request.location.longitude, radius=request.searchRadius)
+    locationBias = {
+        "circle": {
+            "center": {
+                "latitude": request.location.latitude,
+                "longitude": request.location.longitude,
+            },
+            "radius": request.searchRadius,
+        }
+    }
+    print(locationBias)
 
     headers = {
         "Accept": "application/json",
@@ -159,7 +168,8 @@ async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
 
     # Process each query separately
     for query in request.queries:
-        body = {"textQuery": query}
+        body = {"textQuery": query, "locationBias": locationBias}
+        print(body)
         response = requests.post(MAPS_API_URL+"?pageSize=10", headers=headers, json=body, timeout=1000)
         data = response.json()
 
@@ -268,7 +278,7 @@ async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
 
     if not all_places:
         return SearchResponse(
-            places=[], justification="No places found matching your queries."
+            places=[], justification="No places found matching your queries.", user_preferences=[]
         )
 
     user_preferences = await get_user_preferences(request.messages, all_places)
