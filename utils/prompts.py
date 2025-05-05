@@ -1,7 +1,7 @@
 """Prompts for pin-point AI"""
 
 CREATE_QUERY_PROMPT = """
-Based on the conversation history of multiple users, create a search query to find preferred activities for them.
+Based on the conversation history of multiple users, create a max 3 search queries to find preferred activities for them.
 
 Conversation History:
 {conversation_history}
@@ -15,18 +15,18 @@ Here are some examples, with explanations as to how they were created:
 "+1 514-670-8700" 	This query contains a phone number. It returns multiple results for places associated with that phone number.
 
 
-In your response, ONLY RESPOND WITH THE QUERY, NOTHING ELSE.
+In your response, ONLY RESPOND WITH THE QUERIES, NOTHING ELSE.
 """
 
 JUSTIFICATION_PROMPT = """
-Based on the conversation history of multiple users, the created search query, and the list of places returned, and their final scores, create a justification for the results in a casual narrative format.
-The justification should be based on the RESULTS not the search query or the final scores (don't mention the scores in the justification).
+Based on the conversation history of multiple users, the created search queries, and the list of places returned, and their final scores, create a justification for the results in a casual narrative format.
+The justification should be based on the RESULTS not the search queries or the final scores (don't mention the scores in the justification).
 
 Conversation History:
 {conversation_history}
 
-Search Query:
-{search_query}
+Search Queries:
+{search_queries}
 
 Places:
 {places}
@@ -51,10 +51,13 @@ Place Details:
 """
 
 FINAL_SCORING_PROMPT = """
-Based on the conversation history and the place's scores, return the final score for the place.
+Based on the conversation history, place details and the place's scores, return the final score for the place.
 
 Conversation History:
 {conversation_history}
+
+Place Details:
+{place_details}
 
 Place Scores:
 {place_scores}

@@ -26,6 +26,7 @@ from models.place import (
     Availability,
     UserPreferences,
     PriceRange,
+    SearchQueries,
 )
 from models.chat import ChatRequest, Message
 
@@ -69,7 +70,7 @@ async def find_places(request: ChatRequest) -> StreamingResponse:
         for message in messages
     ]
 
-    response = client.models.generate_content(
+    queries_pv = client.models.generate_content(
         model=LITE_MODEL,
         contents=formatted_messages,
         config=types.GenerateContentConfig(
@@ -77,20 +78,28 @@ async def find_places(request: ChatRequest) -> StreamingResponse:
                 conversation_history="\n".join(
                     [message.content for message in messages]
                 )
-            )
+            ),
+            response_mime_type="application/json",
+            response_schema=SearchQueries,
         ),
     )
+    
+    if not queries_pv.parsed:
+        raise HTTPException(status_code=500, detail="Failed to parse search queries")
+
+    queries = queries_pv.parsed
+    
+    print(queries)
 
     async def generate_response():
         response_builder = {}
         # First get and stream the places
         places = await get_places_from_maps(
-            SearchRequest(query=response.text, messages=messages)
+            SearchRequest(queries=queries.queries, messages=messages)
         )
         response_builder["places"] = [place.model_dump() for place in places.places]
         response_builder["user_preferences"] = [
-            user_preference.model_dump()
-            for user_preference in places.user_preferences
+            user_preference.model_dump() for user_preference in places.user_preferences
         ]
         response_builder["justification"] = ""
         yield f"event: places\ndata: {json.dumps(response_builder)}\n\n"
@@ -102,7 +111,7 @@ async def find_places(request: ChatRequest) -> StreamingResponse:
                 conversation_history="\n".join(
                     [message.content for message in messages]
                 ),
-                search_query=response.text,
+                search_queries=queries.queries,
                 places=places.places,
                 final_scores=places.user_preferences,
             ),
@@ -126,105 +135,127 @@ async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
         "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.websiteUri,places.googleMapsUri,places.types,places.currentOpeningHours,places.accessibilityOptions,places.businessStatus,places.goodForChildren,places.goodForGroups,places.liveMusic,places.allowsDogs,places.outdoorSeating,places.parkingOptions,places.dineIn,places.delivery,places.internationalPhoneNumber,places.photos,places.rating,places.userRatingCount,places.reservable,places.priceRange,places.priceLevel,places.location",
     }
 
-    body = {"textQuery": request.query}
+    all_places = []
+    seen_place_ids = set()
 
-    response = requests.post(MAPS_API_URL, headers=headers, json=body, timeout=1000)
+    # Process each query separately
+    for query in request.queries:
+        body = {"textQuery": query}
+        response = requests.post(MAPS_API_URL+"?pageSize=10", headers=headers, json=body, timeout=1000)
+        data = response.json()
 
-    data = response.json()
+        if "places" in data and data["places"]:
+            for place in data["places"]:
+                # Skip if we've already seen this place
+                if place["id"] in seen_place_ids:
+                    continue
+                
+                seen_place_ids.add(place["id"])
+                all_places.append(
+                    PlaceFullResponse(
+                        id=place["id"],
+                        displayName=place["displayName"]["text"],
+                        formattedAddress=place["formattedAddress"] if "formattedAddress" in place else None,
+                        rating=place["rating"] if "rating" in place else None,
+                        googleMapsUri=place["googleMapsUri"],
+                        websiteUri=place["websiteUri"] if "websiteUri" in place else None,
+                        location=Location(
+                            latitude=place["location"]["latitude"],
+                            longitude=place["location"]["longitude"],
+                        ),
+                        userRatingCount=place["userRatingCount"],
+                        types=place["types"],
+                        currentOpeningHours=(
+                            place["currentOpeningHours"]["weekdayDescriptions"]
+                            if "currentOpeningHours" in place and "weekdayDescriptions" in place["currentOpeningHours"]
+                            else []
+                        ),
+                        goodForChildren=(
+                            map_to_availability(place["goodForChildren"])
+                            if "goodForChildren" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        goodForGroups=(
+                            map_to_availability(place["goodForGroups"])
+                            if "goodForGroups" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        liveMusic=(
+                            map_to_availability(place["liveMusic"])
+                            if "liveMusic" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        allowedDogs=(
+                            map_to_availability(place["allowedDogs"])
+                            if "allowedDogs" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        outdoorSeating=(
+                            map_to_availability(place["outdoorSeating"])
+                            if "outdoorSeating" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        parkingOptions=(
+                            map_to_availability(place["parkingOptions"])
+                            if "parkingOptions" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        dineIn=(
+                            map_to_availability(place["dineIn"])
+                            if "dineIn" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        delivery=(
+                            map_to_availability(place["delivery"])
+                            if "delivery" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        reservable=(
+                            map_to_availability(place["reservable"])
+                            if "reservable" in place
+                            else Availability.NOT_AVAILABLE
+                        ),
+                        priceRange=PriceRange(
+                            startPrice=(
+                                place["priceRange"]["startPrice"]["currencyCode"]
+                                + " "
+                                + place["priceRange"]["startPrice"]["units"]
+                                if "priceRange" in place and "startPrice" in place["priceRange"]
+                                else None
+                            ),
+                            endPrice=(
+                                place["priceRange"]["endPrice"]["currencyCode"]
+                                + " "
+                                + place["priceRange"]["endPrice"]["units"]
+                                if "priceRange" in place and "endPrice" in place["priceRange"]
+                                else None
+                            ),
+                        ),
+                        photos=(
+                            [photo["googleMapsUri"] for photo in place["photos"]]
+                            if "photos" in place
+                            else None
+                        ),
+                        internationalPhoneNumber=(
+                            place["internationalPhoneNumber"]
+                            if "internationalPhoneNumber" in place
+                            else None
+                        ),
+                        businessStatus=(
+                            place["businessStatus"] if "businessStatus" in place else None
+                        ),
+                    )
+                )
 
-    if "places" not in data or not data["places"]:
+    if not all_places:
         return SearchResponse(
-            places=[], justification="No places found matching your query."
+            places=[], justification="No places found matching your queries."
         )
-    places = [
-        PlaceFullResponse(
-            id=place["id"],
-            displayName=place["displayName"]["text"],
-            formattedAddress=place["formattedAddress"],
-            rating=place["rating"],
-            googleMapsUri=place["googleMapsUri"],
-            websiteUri=place["websiteUri"] if "websiteUri" in place else None,
-            location=Location(
-                latitude=place["location"]["latitude"],
-                longitude=place["location"]["longitude"],
-            ),
-            userRatingCount=place["userRatingCount"],
-            types=place["types"],
-            currentOpeningHours=(
-                place["currentOpeningHours"]["weekdayDescriptions"]
-                if "currentOpeningHours" in place
-                else None
-            ),
-            goodForChildren=(
-                map_to_availability(place["goodForChildren"])
-                if "goodForChildren" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            goodForGroups=(
-                map_to_availability(place["goodForGroups"])
-                if "goodForGroups" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            liveMusic=(
-                map_to_availability(place["liveMusic"])
-                if "liveMusic" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            allowedDogs=(
-                map_to_availability(place["allowedDogs"])
-                if "allowedDogs" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            outdoorSeating=(
-                map_to_availability(place["outdoorSeating"])
-                if "outdoorSeating" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            parkingOptions=(
-                map_to_availability(place["parkingOptions"])
-                if "parkingOptions" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            dineIn=(
-                map_to_availability(place["dineIn"])
-                if "dineIn" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            delivery=(
-                map_to_availability(place["delivery"])
-                if "delivery" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            reservable=(
-                map_to_availability(place["reservable"])
-                if "reservable" in place
-                else Availability.NOT_AVAILABLE
-            ),
-            priceRange=PriceRange(
-                startPrice=place["priceRange"]["startPrice"]["currencyCode"] + " " + place["priceRange"]["startPrice"]["units"] if "priceRange" in place and "startPrice" in place["priceRange"] else None,
-                endPrice=place["priceRange"]["endPrice"]["currencyCode"] + " " + place["priceRange"]["endPrice"]["units"] if "priceRange" in place and "endPrice" in place["priceRange"] else None,
-            ),
-            photos=(
-                [photo["googleMapsUri"] for photo in place["photos"]]
-                if "photos" in place
-                else None
-            ),
-            internationalPhoneNumber=(
-                place["internationalPhoneNumber"]
-                if "internationalPhoneNumber" in place
-                else None
-            ),
-            businessStatus=(
-                place["businessStatus"] if "businessStatus" in place else None
-            ),
-        )
-        for place in data["places"]
-    ]
 
-    user_preferences = await get_user_preferences(request.messages, places)
+    user_preferences = await get_user_preferences(request.messages, all_places)
 
     return SearchResponse(
-        places=places, justification="", user_preferences=user_preferences
+        places=all_places, justification="", user_preferences=user_preferences
     )
 
 
@@ -232,6 +263,14 @@ async def get_user_preferences(
     messages: List[Message], places: List[PlaceFullResponse]
 ) -> List[UserPreferences]:
     """Get the user preferences for the places.
+    For this we firstly get the place scores for various criteria based on the
+    conversation history and the place details (useful information from retrieved places).
+    Then we get the final score for each place based on the place scores
+    and the conversation history.
+
+    Args:
+        messages: The conversation history.
+        places: The places to get the user preferences for.
 
     Returns:
         The user preferences for the places.
@@ -281,17 +320,20 @@ async def get_user_preferences(
         return place_score
 
     # Get all place scores in parallel
-    place_scores = await asyncio.gather(
-        *[get_place_score(place) for place in places]
-    )
+    place_scores = await asyncio.gather(*[get_place_score(place) for place in places])
+    
+    print(place_scores)
 
-    async def get_final_score(place_score: PlaceRanking) -> UserPreferences:
+    async def get_final_score(
+        place_score: PlaceRanking, place_details: Place
+    ) -> UserPreferences:
         final_score_pv = await client.aio.models.generate_content(
             model=LITE_MODEL,
             contents=FINAL_SCORING_PROMPT.format(
                 conversation_history="\n".join(
                     [message.content for message in messages]
                 ),
+                place_details=place_details,
                 place_scores=place_scores,
             ),
             config=types.GenerateContentConfig(
@@ -309,7 +351,10 @@ async def get_user_preferences(
 
     # Get all final scores in parallel
     user_preferences = await asyncio.gather(
-        *[get_final_score(place_score) for place_score in place_scores]
+        *[
+            get_final_score(place_score, place_details)
+            for place_score, place_details in zip(place_scores, places)
+        ]
     )
 
     return user_preferences

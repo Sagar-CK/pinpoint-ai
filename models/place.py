@@ -1,7 +1,7 @@
 """Pydantic models for place and location data structures."""
 from typing import Optional, List
 from enum import Enum
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from models.chat import Message
 
 class Availability(str, Enum):
@@ -24,11 +24,11 @@ class Place(BaseModel):
     """ Place data structure that is used for AI ranking """
     id: str
     displayName: str
-    location: Location
-    rating: float
-    userRatingCount: float
-    types: Optional[List[str]] = []
-    currentOpeningHours: Optional[List[str]] = []
+    location: Optional[Location] = None
+    rating: Optional[float] = None
+    userRatingCount: Optional[float] = None
+    types: List[str] = []
+    currentOpeningHours: List[str] = []
     goodForChildren: Optional[Availability] = Availability.NOT_AVAILABLE
     goodForGroups: Optional[Availability] = Availability.NOT_AVAILABLE
     liveMusic: Optional[Availability] = Availability.NOT_AVAILABLE
@@ -43,43 +43,48 @@ class Place(BaseModel):
 
 class PlaceFullResponse(Place):
     """ Place data structure that is retrieved on API call"""
-    formattedAddress: str
+    formattedAddress: Optional[str] = None
     googleMapsUri: str
     websiteUri: Optional[str] = None
-    photos: Optional[List[str]] = []
+    photos: List[str] = []
     internationalPhoneNumber: Optional[str] = None
     businessStatus: Optional[str] = None
 
 class PlaceRanking(BaseModel):
     """Ranking scores for each Place attribute."""
     id: str
-    displayName: float
-    location: float
-    rating: float
-    rating_count: float
-    types: float
-    currentOpeningHours: float
-    goodForChildren: float
-    goodForGroups: float
-    liveMusic: float
-    allowedDogs: float
-    outdoorSeating: float
-    parkingOptions: float
-    dineIn: float
-    delivery: float
-    reservable: float
-    priceLevel: float
-    priceRange: float
+    displayName: float = Field(ge=-1, le=1.0)
+    location: float = Field(ge=-1, le=1.0)
+    rating: float = Field(ge=-1, le=1.0)
+    rating_count: float = Field(ge=-1, le=1.0)
+    types: float = Field(ge=-1, le=1.0)
+    currentOpeningHours: float = Field(ge=-1, le=1.0)
+    goodForChildren: float = Field(ge=-1, le=1.0)
+    goodForGroups: float = Field(ge=-1, le=1.0)
+    liveMusic: float = Field(ge=-1, le=1.0)
+    allowedDogs: float = Field(ge=-1, le=1.0)
+    outdoorSeating: float = Field(ge=-1, le=1.0)
+    parkingOptions: float = Field(ge=-1, le=1.0)
+    dineIn: float = Field(ge=-1, le=1.0)
+    delivery: float = Field(ge=-1, le=1.0)
+    reservable: float = Field(ge=-1, le=1.0)
+    priceLevel: float = Field(ge=-1, le=1.0)
+    priceRange: float = Field(ge=-1, le=1.0)
 
 class UserPreferences(BaseModel):
     """ User Preferences for a place """
     place_id: str
-    score: float
+    score: float = Field(ge=-1, le=1.0)
 
 class SearchRequest(BaseModel):
     """ Search request data structure. """
-    query: str
+    queries: List[str]
     messages: List[Message]
+
+class SearchQueries(BaseModel):
+    """ Search queries data structure. """
+    queries: List[str] = Field(min_items=1, max_items=3)
+
 
 class SearchResponse(BaseModel):
     """ Search response data structure. """
