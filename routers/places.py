@@ -1,7 +1,6 @@
 """Router for the places API."""
 
 import json
-import asyncio
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 import requests
