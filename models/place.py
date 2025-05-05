@@ -71,6 +71,11 @@ class PlaceRanking(BaseModel):
     priceLevel: float
     priceRange: float
 
+class UserPreferences(BaseModel):
+    """ User Preferences for a place """
+    place_id: str
+    score: float
+
 class SearchRequest(BaseModel):
     """ Search request data structure. """
     query: str
@@ -80,8 +85,4 @@ class SearchResponse(BaseModel):
     """ Search response data structure. """
     places: List[PlaceFullResponse]
     justification: str
-
-class UserPreferences(BaseModel):
-    """ User Preferences for a place """
-    place_id: str
-    score: float
+    user_preferences: List[UserPreferences]
