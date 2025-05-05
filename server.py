@@ -1,10 +1,10 @@
 """ Server for the place search API. """
 import logging
 import time
+import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from routers.places import router as places_router
-import uvicorn
 
 # Configure logging
 logging.basicConfig(

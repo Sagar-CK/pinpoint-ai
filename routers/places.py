@@ -1,9 +1,10 @@
 """Router for the places API."""
 
-from typing import List
-import requests
+import json
+import asyncio
 from fastapi import APIRouter
-
+from fastapi.responses import StreamingResponse
+import requests
 from google import genai
 from google.genai import types
 
@@ -17,15 +18,15 @@ router = APIRouter(prefix="/places")
 client = genai.Client(api_key=GOOGLE_API_KEY)
 
 
-@router.post("/chat")
-async def get_request_body(request: ChatRequest) -> SearchResponse:
+@router.post("/chat", response_model=SearchResponse)
+async def find_places(request: ChatRequest) -> StreamingResponse:
     """Get the request body for the maps API.
 
     Args:
         request (ChatRequest): The chat request.
 
     Returns:
-        The request body for the maps API.
+        A streaming response containing places and justification.
     """
     messages = request.messages
     formatted_messages = [
@@ -36,7 +37,7 @@ async def get_request_body(request: ChatRequest) -> SearchResponse:
     ]
 
     response = client.models.generate_content(
-        model=PRO_MODEL,
+        model=LITE_MODEL,
         contents=formatted_messages,
         config=types.GenerateContentConfig(
             system_instruction=CREATE_QUERY_PROMPT.format(
@@ -47,16 +48,39 @@ async def get_request_body(request: ChatRequest) -> SearchResponse:
         ),
     )
 
-    return get_places_from_maps(SearchRequest(query=response.text, messages=messages))
+    async def generate_response():
+        response_builder = {}
+        # First get and stream the places
+        places = await get_places_from_maps(
+            SearchRequest(query=response.text, messages=messages)
+        )
+        response_builder["places"] = [place.model_dump() for place in places.places]
+        response_builder["justification"] = ""
+        yield f"event: places\ndata: {json.dumps(response_builder)}\n\n"
+
+        # Then stream the justification
+        async for chunk in await client.aio.models.generate_content_stream(
+            model=LITE_MODEL,
+            contents=JUSTIFICATION_PROMPT.format(
+                conversation_history="\n".join(
+                    [message.content for message in messages]
+                ),
+                search_query=response.text,
+                places=places.places,
+            ),
+        ):
+            response_builder["justification"] += chunk.text
+            yield f"event: response\ndata: {json.dumps(response_builder)}\n\n"
+
+    return StreamingResponse(generate_response(), media_type="text/event-stream")
 
 
-def get_places_from_maps(request: SearchRequest) -> SearchResponse:
+async def get_places_from_maps(request: SearchRequest) -> SearchResponse:
     """Get places from the maps API.
 
     Returns:
         The places from the maps API.
     """
-
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -69,6 +93,11 @@ def get_places_from_maps(request: SearchRequest) -> SearchResponse:
     response = requests.post(MAPS_API_URL, headers=headers, json=body, timeout=1000)
 
     data = response.json()
+
+    if "places" not in data or not data["places"]:
+        return SearchResponse(
+            places=[], justification="No places found matching your query."
+        )
 
     places = [
         Place(
@@ -85,15 +114,4 @@ def get_places_from_maps(request: SearchRequest) -> SearchResponse:
         for place in data["places"]
     ]
 
-    justification = client.models.generate_content(
-        model=LITE_MODEL,
-        contents=JUSTIFICATION_PROMPT.format(
-            conversation_history="\n".join(
-                [message.content for message in request.messages]
-            ),
-            search_query=request.query,
-            places=places,
-        ),
-    )
-
-    return SearchResponse(places=places, justification=justification.text)
+    return SearchResponse(places=places, justification="")

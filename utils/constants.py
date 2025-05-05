@@ -6,5 +6,5 @@ load_dotenv(override=True)
 
 MAPS_API_URL="https://places.googleapis.com/v1/places:searchText"
 GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
-LITE_MODEL="gemini-2.5-flash-preview-04-17"
+LITE_MODEL="gemini-2.0-flash"
 PRO_MODEL="gemini-2.5-pro-preview-03-25"
